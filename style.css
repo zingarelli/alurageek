@@ -60,14 +60,15 @@ body {
     border-radius: 20px;
     padding: 1em;
     width: 40%;
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark-grey);
 }
 
 .header__searchbox::placeholder {
     background: url('img/search-placeholder.png') no-repeat right / 22px;
     color: var(--grey);
-    font-family: var(--main-font);
-    font-size: 14px;
-    font-weight: 400;
 }
 
 /* ----------- BANNER */
@@ -291,12 +292,21 @@ body {
 
     /* ----------- FOOTER */
     .footer__container {
-        display: flex;
+        display: grid;
+        grid-template-areas: 
+            "logo contact"
+            "links contact";
+        grid-template-columns: 1fr 2fr;
+        column-gap: 3em;
         padding: 2em;
-        gap: 6em;
     }
 
-    .footer__company {
+    .footer__logo {
+        grid-area: logo;
+    }
+
+    .footer__list {
+        grid-area: links;
         text-align: left;
     }
 
@@ -309,7 +319,7 @@ body {
     }
 
     .contact {
-        flex-grow: 2;
+        grid-area: contact;
     }
 
     /* ----------- DEVELOPER */
@@ -320,8 +330,60 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+    .button--primary {
+        font-size: 16px;
+        font-weight: 400;
+    }
 
+    .button--secondary {
+        padding: 1em 4.5em;
+        font-weight: 400;
+    }
+    
+    .header__container,
+    .banner__content,
+    .gallery,
+    .footer__container {
+        padding: 2em 7em;
+    }
+
+    /* ----------- HEADER */
+    .header__logo {
+        width: 100%;
+    }
+
+    .header__searchbox {
+        width: 30%;
+    }
+
+    /* ----------- BANNER */
+    .banner {
+        margin-bottom: 2em;
+    }
+
+    /* ----------- PRODUCTS GALLERY */
+    .gallery__title {
+        font-size: 32px;
+    }
+
+    .item__card {
+        width: 15%;
+    }
+    
+    /* two more items are visible in larger screens */
     .item__card--visibility {
         display: block;
+    }
+
+    /* ----------- FOOTER */
+    .footer__container {
+        grid-template-areas: "logo links contact";
+        grid-template-columns: 1fr 1fr 2fr;
+        column-gap: 0;
+        padding: 3em 7em;
+    }
+
+    .footer__logo {
+        align-self: flex-start;
     }
 }
