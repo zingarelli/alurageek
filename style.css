@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+:root {
+    --blue: #2A7AE4;
+    --dark-grey: #464646;
+    --grey: #A2A2A2;
+    --light-grey: #C8C8C8;
+    --white: #FFFFFF;
+    --bg-blue: #EAF2FD;
+    --bg-grey: #F5F5F5;
+    --main-font: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.button--primary,
+.button--secondary {
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button--primary {
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 1em;
+}
+
+.button--secondary {
+    background-color: var(--white);
+    color: var(--blue);
+    padding: .8em 3.2em;
+    border: 1px solid var(--blue);
+}
+
+/* ----------- HEADER */
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.header__logo {
+    width: 100px;
+}
+
+.header__searchbox {
+    display: none;
+    background-color: var(--bg-grey);
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    width: 40%;
+}
+
+.header__searchbox::placeholder {
+    background: url('img/search-placeholder.png') no-repeat right / 22px;
+    color: var(--grey);
+    font-family: var(--main-font);
+}
+
+/* ----------- BANNER */
+.banner {
+    background: url(img/banner.jpg) no-repeat center / cover;
+    height: 192px;
+    position: relative;
+    /* add a shadow to the image so the white text becomes more visible */
+    box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.25);
+}
+
+.banner__content {
+    bottom: 0;
+    position: absolute;
+    padding: 1em;
+    color: var(--white);
+}
+
+.banner__title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.banner__text {
+    font-weight: 600;
+    margin: 1em 0 .8em;
+}
+
+/* ----------- PRODUCTS GALLERY */
+.gallery {
+    padding: 1em;
+    color: var(--dark-grey);
+}
+
+.gallery__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.gallery__title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.gallery__anchor,
+.item__anchor {
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.gallery__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item__card {
+    width: 48%;
+    margin-bottom: 1em;
+}
+
+.item__card--visibility {
+    display: none;
+}
+
+.item__image {
+    width: 100%;
+    cursor: pointer;
+}
+
+.item__name {
+    font-weight: 500;
+    margin-top: .6em;
+}
+
+.item__price {
+    font-size: 16px;
+    font-weight: 700;
+    margin: .6em 0
+}
+
+/* ----------- FOOTER */
+.footer__container {
+    background-color: var(--bg-blue);
+    padding: 1em;
+    text-align: center;
+}
+
+.footer__list {
+    padding: 1em 0;
+}
+
+.footer__item {
+    margin-bottom: 1em;
+}
+
+.footer__anchor{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark-grey);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ----------- CONTACT US */
+.contact {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin-bottom: 0.5em;
+}
+
+.contact__name--label {
+    font-size: 12px;
+    background-color: var(--white);
+    color: var(--grey);
+    padding: 1em 1em 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.contact__name--input, 
+.contact__message {
+    font-size: 16px;
+    color: var(--dark-grey);
+    font-family: var(--main-font);
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.contact__name--input {
+    margin-bottom: 1em;
+    border-radius: 0 0 5px 5px;
+    padding: 0.6em 0.7em;
+}
+
+.contact__message {
+    margin-bottom: 0.5em;
+    padding: 1em 0.8em;
+}
+
+.contact__message::placeholder {
+    color: var(--grey);
+}
+
+.contact__button {
+    align-self: flex-start;
+}
+
+/* ----------- DEVELOPER */
+.developer {
+    background-color: var(--white);
+    color: var(--dark-grey);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2em;
+    padding: 2em;
+}
+
+
+@media screen and (min-width: 768px) {
+    .header__container {
+        padding: 1em 2em;
+    }
+
+    .header__searchbox {
+        display: block;
+        margin: 0 auto 0 2em;
+    }
+
+    .header__search-icon {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .item__card--visibility {
+        display: block;
+    }
+}
