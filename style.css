@@ -2,6 +2,8 @@
 
 :root {
     --blue: #2A7AE4;
+    --blue-secondary: #5595E9;
+    --light-blue: #D4E4FA;
     --dark-grey: #464646;
     --grey: #A2A2A2;
     --light-grey: #C8C8C8;
@@ -18,12 +20,19 @@ body {
     font-weight: 400;
 }
 
+/* outline is still there, for accessibility, but less intrusive in the layout */
+input:focus, 
+textarea:focus {
+    outline: 1px var(--white);
+}
+
 .button--primary,
 .button--secondary {
     font-family: var(--main-font);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition-duration: .3s; /* for hover effect */
 }
 
 .button--primary {
@@ -33,11 +42,19 @@ body {
     padding: 1em;
 }
 
+.button--primary:hover {
+    background-color: var(--blue-secondary);
+}
+
 .button--secondary {
     background-color: var(--white);
     color: var(--blue);
     padding: .8em 3.2em;
     border: 1px solid var(--blue);
+}
+
+.button--secondary:hover {
+    background-color: var(--light-blue);
 }
 
 /* ----------- HEADER */
@@ -236,6 +253,15 @@ body {
     text-align: center;
     line-height: 1.2em;
     padding: 2em;
+}
+
+.developer__contact {
+    color: var(--dark-grey);
+    text-decoration: none;
+}
+
+.developer__contact:hover {
+    color: var(--blue);
 }
 
 
