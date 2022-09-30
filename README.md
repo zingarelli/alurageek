@@ -5,7 +5,7 @@ Alura Geek, a (fictitious) geek company, has contacted us to develop their e-com
 | -------------  | --- |
 | :sparkles: Nome        | Alura Geek
 | :label: Tecnologias | HTML, CSS, JavaScript
-| :rocket: URL         | https://zingarelli.github.io/AluraGeek/
+| :rocket: URL         | https://zingarelli.github.io/alurageek/
 | :fire: Desafio     | https://www.alura.com.br/challenges/front-end-5
 
 ![](https://user-images.githubusercontent.com/19349339/192602092-6af3b6f3-8ec1-489e-8520-302ba9de2db4.png#vitrinedev)
@@ -51,7 +51,7 @@ Classes in the HTML file will be named using [BEM methodology](https://getbem.co
 
 ### Week 1
 
-During the first week, I focused on developing the Home Page. You can see the page online by [clicking here](https://zingarelli.github.io/AluraGeek/).
+During the first week, I focused on developing the Home Page. You can see the page online by [clicking here](https://zingarelli.github.io/alurageek/).
 
 Some elements are not displayed in the mobile layout, but only in larger screens (over 768px). The opposite also happens. In order to control this, I added the CSS properties `display: none` and `display: block` for those elements, whenever necessary. 
 
