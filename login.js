@@ -3,5 +3,5 @@ const login_form = document.querySelector('.login'); //form to login to the admi
 // needs to validade login credentials. For now, it just redirects to products list page
 login_form.addEventListener('submit', (e) => {
     e.preventDefault();
-    window.location = 'products.html';
+    window.location = 'produtos.html';
 })

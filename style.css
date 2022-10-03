@@ -156,14 +156,9 @@ textarea:focus {
 }
 
 .gallery__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.item__card {
-    width: 48%;
-    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
 }
 
 .item__card--visibility {
@@ -314,8 +309,8 @@ textarea:focus {
         font-size: 16px;
     }
 
-    .item__card {
-        width: 23%;
+    .gallery__items {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     /* ----------- FOOTER */
@@ -390,14 +385,14 @@ textarea:focus {
     }
 
     /* ----------- PRODUCTS GALLERY */
+    .gallery__items {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
     .gallery__title {
         font-size: 32px;
     }
 
-    .item__card {
-        width: 15%;
-    }
-    
     /* two more items are visible in larger screens */
     .item__card--visibility {
         display: block;

@@ -1,11 +1,6 @@
-/* Additional styles for the login page */
 @import url('style.css');
 
-.header__login {
-    /* no need to show the login button in the login page */
-    display: none;
-}
-
+/* Additional styles for the login page */
 .login {
     background-color: var(--bg-grey);
     padding: 6em 3em 5em;

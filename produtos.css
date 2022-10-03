@@ -1,0 +1,37 @@
+@import url('style.css');
+
+/* Additional styles for the products page (admin page) */
+.gallery {
+    padding: 2em;
+}
+
+.gallery__header {
+    flex-wrap: wrap;
+    row-gap: 1em;
+}
+
+.item__card {
+    position: relative;
+}
+
+.item__management {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.item__management-button {
+    width: 24px;
+    height: 24px;
+    margin: 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.item__management-button--delete {
+    background: url('img/delete.png') no-repeat center;
+}
+
+.item__management-button--edit {
+    background: url('img/edit.png') no-repeat center;
+}
