@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="login.css">
+    <title>AluraGeek | Login</title>
+</head>
+<body>
+    <header class="header__container">
+        <a href="index.html" aria-label="link para a página inicial">
+            <img src="img/logo.png" alt="Logo da Alura Geek" class="header__logo">
+        </a>
+        <input class="header__searchbox" placeholder="O que deseja encontrar?">
+        <button class="button--secondary header__login">Login</button>
+        <img src="img/search.png" alt="Botão de pesquisa" class="header__search-icon">
+    </header>
+
+    <main>
+        <form class="login">
+            <h1 class="login__title">Iniciar Sessão</h1>
+            <input required type="email" name="email" id="email" placeholder="Escreva seu email" class="input__text login__input">
+            <input required type="password" name="password" id="password" placeholder="Escreva sua senha" class="input__text login__input">
+            <button class="login__button button--primary">Entrar</button>
+        </form>
+
+    </main>
+
+    <footer class="footer__container">
+        <img src="img/logo.png" alt="Logo da Alura Geek" class="footer__logo">
+        <ul class="footer__list">
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Quem somos nós</a>
+            </li>
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Política de privacidade</a>
+            </li>
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Programa de fidelidade</a>
+            </li>
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Nossas lojas</a>
+            </li>
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Quero ser franqueado</a>
+            </li>
+            <li class="footer__item">
+                <a href="#" class="footer__anchor">Anuncie aqui</a>
+            </li>
+        </ul>
+
+        <section class="contact">
+            <h2 class="contact__title">Fale Conosco</h2>
+            <label for="name" class="contact__name--label">Nome</label>
+            <input type="text" id="name" class="contact__name--input input__text">
+            <textarea name="message" id="message" class="contact__message input__text"
+                placeholder="Escreva sua mensagem"></textarea>
+            <button class="contact__button button--primary">Enviar mensagem</button>
+        </section>
+
+    </footer>
+    <section class="developer">
+        <p>Desenvolvido por</p>
+        <p><a href="https://github.com/zingarelli" class="developer__contact">Matheus Ricardo Uihara Zingarelli</a></p>
+        <p>2022</p>
+    </section>
+
+    <script src="login.js"></script>
+</body>
+</html>

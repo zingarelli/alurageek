@@ -13,6 +13,7 @@
     --main-font: 'Raleway', sans-serif;
 }
 
+/* ----------- GENERAL STYLES */
 body {
     background-color: var(--bg-grey);
     font-family: var(--main-font);
@@ -55,6 +56,20 @@ textarea:focus {
 
 .button--secondary:hover {
     background-color: var(--light-blue);
+}
+
+.input__text {
+    font-size: 16px;
+    color: var(--dark-grey);
+    font-family: var(--main-font);
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: var(--light-grey);
+    border-radius: 5px;
+}
+
+.input__text::placeholder {
+    color: var(--grey);
 }
 
 /* ----------- HEADER */
@@ -216,15 +231,6 @@ textarea:focus {
     border-radius: 5px 5px 0 0;
 }
 
-.contact__name--input, 
-.contact__message {
-    font-size: 16px;
-    color: var(--dark-grey);
-    font-family: var(--main-font);
-    border: none;
-    border-bottom: 1px solid var(--light-grey);
-}
-
 .contact__name--input {
     margin-bottom: 1em;
     border-radius: 0 0 5px 5px;
@@ -234,10 +240,6 @@ textarea:focus {
 .contact__message {
     margin-bottom: 0.5em;
     padding: 1em 0.8em;
-}
-
-.contact__message::placeholder {
-    color: var(--grey);
 }
 
 .contact__button {
