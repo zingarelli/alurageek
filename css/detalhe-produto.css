@@ -1,0 +1,66 @@
+@import url('../style.css');
+
+/* Additional styles for the "Product Detail" page (admin page) */
+.item__banner {
+    background: url('../img/star-wars/caneca-detalhe.png') no-repeat center / cover;
+    height: 192px;
+}
+
+.item__content{
+    padding: 1.5em 1em 2em;
+    color: var(--dark-grey);
+}
+
+.item__title {
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+
+@media screen and (min-width: 768px) {
+    .item {
+        display: flex;
+        column-gap: 1em;
+        align-items: center;
+        padding: 2em;     
+    }
+
+    .item__banner {
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .item__content {
+        flex-grow: 2;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .item {
+        padding: 4em 7em 2em;
+        justify-content: center;
+    }
+
+    .item__banner,
+    .item__content {
+        flex-grow: 0;
+        width: 50%;
+    }
+
+    .item__banner {
+        height: 45vh;
+    }
+
+    .item__title {
+        font-size: 52px;
+    }
+
+    .item__description {
+        font-size: 16px;
+    }
+
+    .gallery {
+        padding-bottom: 4em;
+    }
+}
