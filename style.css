@@ -21,12 +21,6 @@ body {
     font-weight: 400;
 }
 
-/* outline is still there, for accessibility, but less intrusive in the layout */
-input:focus, 
-textarea:focus {
-    outline: 1px var(--white);
-}
-
 .button--primary,
 .button--secondary {
     font-family: var(--main-font);
@@ -58,7 +52,15 @@ textarea:focus {
     background-color: var(--light-blue);
 }
 
-.input__text {
+/* outline is still there, for accessibility, but less intrusive in the layout */
+input:focus, 
+select:focus,
+textarea:focus {
+    outline: 1px var(--white);
+}
+
+.input__text,
+.input__textfield {
     font-size: 16px;
     color: var(--dark-grey);
     font-family: var(--main-font);
@@ -68,8 +70,28 @@ textarea:focus {
     border-radius: 5px;
 }
 
-.input__text::placeholder {
+.input__text::placeholder,
+.input__textfield::placeholder {
     color: var(--grey);
+}
+
+.input__field--label {
+    font-size: 12px;
+    background-color: var(--white);
+    color: var(--grey);
+    padding: 1em 1em .3em;
+    border-radius: 5px 5px 0 0;
+}
+
+.input__field--content {
+    margin-bottom: 1em;
+    border-radius: 0 0 5px 5px;
+    padding: 0.5em 0.7em;
+}
+
+.input__textfield {
+    margin-bottom: 0.5em;
+    padding: 1em 0.8em 1.5em;
 }
 
 /* ----------- HEADER */
@@ -101,6 +123,10 @@ textarea:focus {
 .header__searchbox::placeholder {
     background: url('img/search-placeholder.png') no-repeat right / 22px;
     color: var(--grey);
+}
+
+.header__admin {
+    padding: .8em 1em;
 }
 
 /* ----------- BANNER */
@@ -216,25 +242,6 @@ textarea:focus {
     font-weight: 700;
     color: var(--dark-grey);
     margin-bottom: 0.5em;
-}
-
-.contact__name--label {
-    font-size: 12px;
-    background-color: var(--white);
-    color: var(--grey);
-    padding: 1em 1em 0;
-    border-radius: 5px 5px 0 0;
-}
-
-.contact__name--input {
-    margin-bottom: 1em;
-    border-radius: 0 0 5px 5px;
-    padding: 0.6em 0.7em;
-}
-
-.contact__message {
-    margin-bottom: 0.5em;
-    padding: 1em 0.8em;
 }
 
 .contact__button {

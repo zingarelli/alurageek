@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="login.css">
-    <title>AluraGeek | Login</title>
+    <link rel="stylesheet" href="adicionar-produto.css">
+    <title>AluraGeek | Admin - Adicionar Produto</title>
 </head>
 <body>
     <header class="header__container">
@@ -15,16 +15,34 @@
             <img src="img/logo.png" alt="Logo da Alura Geek" class="header__logo">
         </a>
         <input class="header__searchbox" placeholder="O que deseja encontrar?">
-        <!-- <button class="button--secondary header__login">Login</button> -->
+        <button class="button--secondary header__admin">Menu administrador</button>
         <img src="img/search.png" alt="Botão de pesquisa" class="header__search-icon">
     </header>
 
     <main>
-        <form class="login">
-            <h1 class="login__title">Iniciar Sessão</h1>
-            <input required type="email" name="email" id="email" placeholder="Escreva seu email" class="input__text login__input">
-            <input required type="password" name="password" id="password" placeholder="Escreva sua senha" class="input__text login__input">
-            <button class="login__button button--primary">Entrar</button>
+        <form class="product">
+            <h1 class="product__title">Adicionar novo produto</h1>
+            <label for="product-url" class="input__field--label">URL da imagem</label>
+            <input required type="text" id="product-url" class="input__field--content input__text">
+
+            <label for="product-category" class="input__field--label">Categoria</label>
+            <select required id="product-category" class="product__category input__field--content input__text">
+                <option value="">Selecione uma categoria</option>
+                <option value="star-wars">Star Wars</option>
+                <option value="console">Consoles</option>
+                <option value="others">Diversos</option>
+            </select>            
+
+            <label for="product-name" class="input__field--label">Nome do produto</label>
+            <input required type="text" id="product-name" class="input__field--content input__text">
+
+            <label for="product-price" class="input__field--label">Preço do produto</label>
+            <input required type="text" id="product-price" class="input__field--content input__text" value="R$ ">
+
+            <textarea name="product-description" id="product-description" class="product__description input__textfield"
+                placeholder="Descrição do produto"></textarea>
+
+            <button class="product__button button--primary">Adicionar produto</button>
         </form>
 
     </main>
@@ -56,7 +74,7 @@
             <h2 class="contact__title">Fale Conosco</h2>
             <label for="name" class="input__field--label">Nome</label>
             <input type="text" id="name" class="input__field--content input__text">
-            <textarea name="message" id="message" class="input__textfield"
+            <textarea required name="message" id="message" class="input__textfield"
                 placeholder="Escreva sua mensagem"></textarea>
             <button class="contact__button button--primary">Enviar mensagem</button>
         </section>
@@ -68,6 +86,6 @@
         <p>2022</p>
     </section>
 
-    <script src="login.js"></script>
+    <script src="adicionar-produto.js"></script>
 </body>
 </html>
