@@ -7,6 +7,7 @@
     --dark-grey: #464646;
     --grey: #A2A2A2;
     --light-grey: #C8C8C8;
+    --red:#ff2c2c;
     --white: #FFFFFF;
     --bg-blue: #EAF2FD;
     --bg-grey: #F5F5F5;
@@ -59,6 +60,10 @@ textarea:focus {
     outline: 1px var(--white);
 }
 
+.input__wrapper {
+    width: 100%;
+}
+
 .input__text,
 .input__textfield {
     font-size: 16px;
@@ -73,6 +78,14 @@ textarea:focus {
 .input__text::placeholder,
 .input__textfield::placeholder {
     color: var(--grey);
+}
+
+.input__validation-message {
+    color: var(--red);
+    font-size: 12px;
+    align-self: flex-start;
+    display:inline-block;
+    margin-top: .4em;
 }
 
 .input__field--label {
@@ -92,6 +105,10 @@ textarea:focus {
 .input__textfield {
     margin-bottom: 0.5em;
     padding: 1em 0.8em 1.5em;
+}
+
+.input--invalid {
+    border-color: var(--red);
 }
 
 /* ----------- HEADER */

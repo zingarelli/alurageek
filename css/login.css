@@ -16,6 +16,16 @@
     font-weight: 700;
 }
 
+.login__error--visible {
+    background-color: var(--white);
+    border: 1px solid var(--red);
+    width: 100%;
+    padding: .3em;
+    box-sizing: border-box;
+    text-align: center;
+    transition: .5s;
+}
+
 .login__input {
     width: 100%;
     padding: 1em;

@@ -22,11 +22,17 @@
     <main>
         <form class="login">
             <h1 class="login__title">Iniciar Sessão</h1>
-            <input required type="email" name="email" id="email" placeholder="Escreva seu email" class="input__text login__input">
-            <input required type="password" name="password" id="password" placeholder="Escreva sua senha" class="input__text login__input">
+            <h2 class="login__error"></h2>
+            <div class="input__wrapper">
+                <input required type="email" name="email" id="email" placeholder="Escreva seu email" class="input__text login__input">
+                <span class="input__validation-message"></span>
+            </div>
+            <div class="input__wrapper">
+                <input required type="password" name="password" id="password" placeholder="Escreva sua senha" class="input__text login__input">
+                <span class="input__validation-message"></span>
+            </div>
             <button class="login__button button--primary">Entrar</button>
         </form>
-
     </main>
 
     <footer class="footer__container">
