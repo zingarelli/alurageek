@@ -7,6 +7,10 @@
     padding: 1em;
 }
 
+.product > .input__wrapper {
+    margin-bottom: 1em;
+}
+
 .product__title {
     color: var(--dark-grey);
     font-size: 22px;
@@ -18,10 +22,6 @@
     cursor: pointer;
     /* appearance clears default layout for a select element */
     appearance: none;
-}
-
-.product__description{
-    margin-bottom: 1em;
 }
 
 .product__button {

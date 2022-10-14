@@ -21,27 +21,42 @@
 
     <main>
         <form class="product">
-            <h1 class="product__title">Adicionar novo produto</h1>
-            <label for="product-url" class="input__field--label">URL da imagem</label>
-            <input required type="text" id="product-url" class="input__field--content input__text">
+            <h1 class="product__title">Adicionar novo produto</h1>            
+            <div class="input__wrapper">
+                <label for="product-url" class="input__field--label">URL da imagem</label>
+                <input type="text" id="product-url" class="input__field--content input__text" required>
+                <span class="input__validation-message"></span>
+            </div>
 
-            <label for="product-category" class="input__field--label">Categoria</label>
-            <select required id="product-category" class="product__category input__field--content input__text">
-                <option value="">Selecione uma categoria</option>
-                <option value="star-wars">Star Wars</option>
-                <option value="console">Consoles</option>
-                <option value="others">Diversos</option>
-            </select>            
+            <div class="input__wrapper">
+                <label for="product-category" class="input__field--label">Categoria</label>
+                <select id="product-category" class="product__category input__field--content input__text" required>
+                    <option value="">Selecione uma categoria</option>
+                    <option value="star-wars">Star Wars</option>
+                    <option value="console">Consoles</option>
+                    <option value="others">Diversos</option>
+                </select>
+                <span class="input__validation-message"></span>
+            </div>
 
-            <label for="product-name" class="input__field--label">Nome do produto</label>
-            <input required type="text" id="product-name" class="input__field--content input__text">
+            <div class="input__wrapper">
+                <label for="product-name" class="input__field--label">Nome do produto</label>
+                <input type="text" id="product-name" class="input__field--content input__text" maxlength="20" required>
+                <span class="input__validation-message"></span>
+            </div>
 
-            <label for="product-price" class="input__field--label">Preço do produto</label>
-            <input required type="text" id="product-price" class="input__field--content input__text" value="R$ ">
+            <div class="input__wrapper">
+                <label for="product-price" class="input__field--label">Preço do produto (R$)</label>
+                <input type="number" id="product-price" class="input__field--content input__text" min="0.01" step="0.01" required>
+                <span class="input__validation-message"></span>
+            </div>
 
-            <textarea name="product-description" id="product-description" class="product__description input__textfield"
-                placeholder="Descrição do produto"></textarea>
-
+            <div class="input__wrapper">
+                <textarea name="product-description" id="product-description" class="product__description input__textfield" placeholder="Descrição do produto" maxlength="150" required></textarea>
+                <span class="input__validation-message"></span>
+            </div>
+            
+            <p class="form__message"></p>
             <button class="product__button button--primary">Adicionar produto</button>
         </form>
 
@@ -83,7 +98,7 @@
                         placeholder="Escreva sua mensagem" maxlength="120" required></textarea>
                     <span class="input__validation-message"></span>                
                 </div>
-                <p class="contact__message"></p>
+                <p class="form__message"></p>
                 <button class="contact__button button--primary">Enviar mensagem</button>
             </form>
         </section>
@@ -95,7 +110,7 @@
         <p>2022</p>
     </section>
 
-    <script src="js/adicionar-produto.js"></script>
+    <script type="module" src="js/adicionar-produto.js"></script>
     <script type="module" src="js/contato.js"></script>
 </body>
 </html>

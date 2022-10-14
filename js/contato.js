@@ -16,26 +16,26 @@ contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // element that will show a success/fail message
-    const text = document.querySelector('.contact__message');
+    const text = e.target.querySelector('.form__message');
 
     // send the message to back end
     const success = sendMessage();
 
     if(success) {        
         text.innerText = 'Mensagem enviada com sucesso!';
-        text.classList.add('contact__message--success')
+        text.classList.add('form__message--success')
 
         setTimeout(() => {
-            text.classList.remove('contact__message--success')
+            text.classList.remove('form__message--success')
             text.innerText = '';
         }, 5000);
     } 
     else {
         text.innerText = 'Ocorreu um erro no envio da mensagem. Por favor, verifique se os campos foram preenchidos corretamente.';
-        text.classList.add('contact__message--error')
+        text.classList.add('form__message--error')
 
         setTimeout(() => {
-            text.classList.remove('contact__message--error')
+            text.classList.remove('form__message--error')
             text.innerText = '';
         }, 5000);
     }

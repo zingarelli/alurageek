@@ -268,13 +268,13 @@ textarea:focus {
     margin: 1em 0 .5em;
 }
 
-.contact__message {
+.form__message {
     visibility: hidden;
     transition: .5s;
 }
 
-.contact__message--success,
-.contact__message--error {
+.form__message--success,
+.form__message--error {
     visibility: visible;
     background-color: var(--white);
     padding: .3em;
@@ -282,11 +282,11 @@ textarea:focus {
     text-align: center;    
 }
 
-.contact__message--success {
+.form__message--success {
     border: 1px solid var(--green);
 }
 
-.contact__message--error {
+.form__message--error {
     border: 1px solid var(--red);
 }
 
