@@ -1,6 +1,8 @@
-const login_btn = document.querySelector('.header__login'); //button to access login page
+const loginBtn = document.querySelector('.header__login'); // button to access login page
 
-// redirects to the login page
-login_btn.addEventListener('click', () => {
+// ----- Events
+
+// redirect to the login page
+loginBtn.addEventListener('click', () => {
     window.location = 'login.html';
 })

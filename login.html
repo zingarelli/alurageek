@@ -22,7 +22,7 @@
     <main>
         <form class="login">
             <h1 class="login__title">Iniciar Sessão</h1>
-            <h2 class="login__error"></h2>
+            <p class="login__error"></p>
             <div class="input__wrapper">
                 <input required type="email" name="email" id="email" placeholder="Escreva seu email" class="input__text login__input">
                 <span class="input__validation-message"></span>
@@ -60,11 +60,20 @@
 
         <section class="contact">
             <h2 class="contact__title">Fale Conosco</h2>
-            <label for="name" class="input__field--label">Nome</label>
-            <input type="text" id="name" class="input__field--content input__text">
-            <textarea name="message" id="message" class="input__textfield"
-                placeholder="Escreva sua mensagem"></textarea>
-            <button class="contact__button button--primary">Enviar mensagem</button>
+            <form class="contact__form">
+                <div class="input__wrapper">
+                    <label for="name" class="input__field--label">Nome</label>
+                    <input type="text" id="name" class="input__field--content input__text" maxlength="40" required>
+                    <span class="input__validation-message"></span>
+                </div>
+                <div class="input__wrapper">
+                    <textarea name="message" id="message" class="input__textfield"
+                        placeholder="Escreva sua mensagem" maxlength="120" required></textarea>
+                    <span class="input__validation-message"></span>                
+                </div>
+                <p class="contact__message"></p>
+                <button class="contact__button button--primary">Enviar mensagem</button>
+            </form>
         </section>
 
     </footer>
@@ -74,6 +83,7 @@
         <p>2022</p>
     </section>
 
-    <script src="js/login.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/contato.js"></script>
 </body>
 </html>
