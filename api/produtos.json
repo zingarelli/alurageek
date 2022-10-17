@@ -1,0 +1,143 @@
+[
+    {
+        "categoryName": "Star Wars",
+        "products": [
+            {
+                "id": "1",
+                "picture": "img/star-wars/caneca.png",
+                "name": "Caneca Stormtrooper",
+                "price": "45,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "2",
+                "picture": "img/star-wars/lego.png",
+                "name": "Lego Cabeça",
+                "price": "189,99",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "3",
+                "picture": "img/star-wars/yoda.png",
+                "name": "Yoda 10cm",
+                "price": "22,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "4",
+                "picture": "img/star-wars/stormtrooper.png",
+                "name": "Stormtrooper 50cm",
+                "price": "71,90",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "5",
+                "picture": "img/star-wars/baby-yoda.png",
+                "name": "Pelúcia Baby Yoda",
+                "price": "156,30",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "6",
+                "picture": "img/star-wars/kylo-ren.png",
+                "name": "Kylo Ren 45cm",
+                "price": "88,90",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            }
+        ]
+    },
+    {
+        "categoryName": "Consoles",
+        "products": [
+            {
+                "id": "1",
+                "picture": "img/games/xbox-controller.png",
+                "name": "Controle XBOX",
+                "price": "325,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "2",
+                "picture": "img/games/ps5.png",
+                "name": "PS5",
+                "price": "4399,90",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "3",
+                "picture": "img/games/nes.png",
+                "name": "Nintendinho (raro)",
+                "price": "1999,99",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "4",
+                "picture": "img/games/switch-controller.png",
+                "name": "Controle Switch",
+                "price": "480,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "5",
+                "picture": "img/games/xbox-series-x.png",
+                "name": "XBOX Series X",
+                "price": "4299,90",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "6",
+                "picture": "img/games/game-boy-color.png",
+                "name": "Game Boy Color",
+                "price": "752,25",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            }
+        ]
+    }, 
+    {
+        "categoryName": "Diversos",
+        "products": [
+            {
+                "id": "1",
+                "picture": "img/others/atari-shirt.png",
+                "name": "Camiseta ATARI",
+                "price": "80,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "2",
+                "picture": "img/others/snes-shirt.png",
+                "name": "Camiseta Nintendo",
+                "price": "80,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "3",
+                "picture": "img/others/sonic.png",
+                "name": "Sonic 7cm",
+                "price": "18,90",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "4",
+                "picture": "img/others/radio.png",
+                "name": "Rádio-relógio rosa",
+                "price": "94,55",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "5",
+                "picture": "img/others/psvr.png",
+                "name": "PSVR (usado)",
+                "price": "3450,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            },
+            {
+                "id": "6",
+                "picture": "img/others/pikachu.png",
+                "name": "Fantasia Pikachu G",
+                "price": "322,00",
+                "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
+            }
+        ]
+    }
+]
