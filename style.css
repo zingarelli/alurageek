@@ -23,6 +23,10 @@ body {
     font-weight: 400;
 }
 
+a {
+    text-decoration: none;
+}
+
 .button--primary,
 .button--secondary {
     font-family: var(--main-font);
@@ -196,7 +200,6 @@ textarea:focus {
 .gallery__anchor,
 .item__anchor {
     font-weight: 700;
-    text-decoration: none;
     cursor: pointer;
     color: var(--blue);
 }
@@ -246,7 +249,6 @@ textarea:focus {
     font-size: 16px;
     font-weight: 500;
     color: var(--dark-grey);
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -307,7 +309,6 @@ textarea:focus {
 
 .developer__contact {
     color: var(--dark-grey);
-    text-decoration: none;
 }
 
 .developer__contact:hover {

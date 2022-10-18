@@ -1,6 +1,7 @@
 [
     {
         "categoryName": "Star Wars",
+        "categoryId": "1",
         "products": [
             {
                 "id": "1",
@@ -48,6 +49,7 @@
     },
     {
         "categoryName": "Consoles",
+        "categoryId": "2",
         "products": [
             {
                 "id": "1",
@@ -95,6 +97,7 @@
     }, 
     {
         "categoryName": "Diversos",
+        "categoryId": "3",
         "products": [
             {
                 "id": "1",

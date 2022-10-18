@@ -1,5 +1,4 @@
-const addProduct = document.querySelector('.gallery__button');
+import { displayProducts } from './gerencia-produtos.js'
 
-addProduct.addEventListener('click', () => {
-    window.location = 'adicionar-produto.html';
-})
+// show all products when the page loads
+displayProducts('all');
