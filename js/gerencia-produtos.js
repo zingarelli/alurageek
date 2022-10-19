@@ -9,15 +9,19 @@ const productsCatalog = document.querySelector('.products__catalog'); // element
 
 /**
  * Load products list and display it in the page, based on the category
- * @param categoryId Id of a category to fetch products from. Use "all" to fetch all products, or
- * "split" to display a gallery of products to each available category.
+ * @param type Type of layout to display products. Use "all" to show all products in a single gallery, 
+ * "split" to display a gallery of products for each available category, "search" to show products
+ * based on a set of keywords, and "category" to show products for a category
+ * @param key (optional) A set of keywords to search products by name or a category Id to get products from
+ * a single category
  */
-export async function displayProducts(categoryId) {
+//TODO: refactor this function, it's too big and full of responsibilities
+export async function displayProducts(type, key) {
     // retrieve products from API
     const productsResponse = await getProducts();
 
     // display all products
-    if (categoryId === 'all') { 
+    if (type === 'all') { 
         const gallery = createGallery();
 
         addTitleToGallery(gallery, 'Todos os produtos');
@@ -25,7 +29,7 @@ export async function displayProducts(categoryId) {
         addAllProductsToGallery(productsResponse, gallery);
     }
     // display products, divided by category
-    else if (categoryId === 'split') { 
+    else if (type === 'split') { 
         productsResponse.forEach(category => {
             const gallery = createGallery();
             const products = category['products'];
@@ -36,8 +40,8 @@ export async function displayProducts(categoryId) {
         });
     }
     // display all products for a single category
-    else { 
-        const category = getCategory(productsResponse, categoryId);
+    else if (type === 'category') { 
+        const category = getCategory(productsResponse, key);
         const gallery = createGallery();
 
         if (category != null) {
@@ -48,6 +52,20 @@ export async function displayProducts(categoryId) {
         }
         else { // category doesn't exist
             addTitleToGallery(gallery, 'A categoria informada não existe!');
+        }
+    }
+    // display products given a keyword search
+    else if (type === 'search') {
+        const products = await getProductsByKeywords(key);
+        const gallery = createGallery();
+
+        if (products.length > 0) {
+            addTitleToGallery(gallery, "Resultado da Busca");
+            addProductsToGallery(gallery, products, products.length, products.length);
+        }
+        else 
+        {
+            addTitleToGallery(gallery, "A busca não retornou nenhum resultado!");
         }
     }
 }
@@ -70,7 +88,43 @@ async function getProducts() {
     }
 }
 
-// return category from the list of products given a category Id
+// return a list of products whose name matches one of the keywords
+async function getProductsByKeywords(keywords) {
+    /*
+        Here we would send a request to API passing the keyword in order
+        to receive a response with the filtered products. Since there is
+        no back end in this project, I'll use the JSON file included in 
+        the project and filter results from it.
+    */
+    const productsList = [];
+    try {
+        //get all products
+        const response = await getProducts();
+
+        // filter by name in each category category
+        response.forEach(category => {
+            productsList.push(...category['products'].filter(({ name }) => {
+                // in case the user has typed more than one word, 
+                // we'll do the search for each word and return the
+                // product only once
+                let itemFound = false;
+                //TODO: use a different loop to stop the loop and return early if a conditional is true
+                keywords.split(' ').forEach( key => {
+                    if (name.toLowerCase().includes(key.toLowerCase())) {
+                        itemFound = true;
+                    }
+                })
+                return itemFound;
+            }))
+        })
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
+    }
+    return productsList;
+}
+
+// return a list of products for a given category 
 function getCategory(products, categoryId) {
     for (const category of products) {
         if (category['categoryId'] === categoryId) {
