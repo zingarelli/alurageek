@@ -1,5 +1,6 @@
 const searchIcon = document.querySelector('.header__search-icon');
 const searchBox = document.querySelector('.header__searchbox');
+const currentWindowWidth = window.innerWidth;
 
 // hide icon and show search box
 searchIcon.addEventListener('click', () => {
@@ -8,13 +9,22 @@ searchIcon.addEventListener('click', () => {
     searchIcon.style.display = 'none';
 })
 
-// if the window is resized, ensure the visibility of the icons are respecting the original layout
+/**
+ * If the window is resized, ensure the visibility of the icons are 
+ * respecting the original layout. This will only be applied if there
+ * were a change in the width. This step is necessary because when 
+ * a keyboard is open on mobile, this trigger onresize event due to
+ * a change in the height (changes in height don't affect the layout).
+ * */ 
 onresize = () => {
-    searchBox.classList.remove('header__searchbox--mobile');
-    if(window.innerWidth < 768){
-        searchIcon.style.display = 'block';
-    }
-    else {
-        searchIcon.style.display = 'none';
+    // changes will be applied only if the window widht changed
+    if(currentWindowWidth !== window.innerWidth){
+        searchBox.classList.remove('header__searchbox--mobile');
+        if(window.innerWidth < 768){
+            searchIcon.style.display = 'block';
+        }
+        else {
+            searchIcon.style.display = 'none';
+        }
     }
 }
