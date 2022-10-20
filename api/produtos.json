@@ -52,42 +52,42 @@
         "categoryId": "2",
         "products": [
             {
-                "id": "1",
+                "id": "7",
                 "picture": "img/games/xbox-controller.png",
                 "name": "Controle XBOX",
                 "price": "325,00",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "2",
+                "id": "8",
                 "picture": "img/games/ps5.png",
                 "name": "PS5",
                 "price": "4399,90",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "3",
+                "id": "9",
                 "picture": "img/games/nes.png",
                 "name": "Nintendinho (raro)",
                 "price": "1999,99",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "4",
+                "id": "10",
                 "picture": "img/games/switch-controller.png",
                 "name": "Controle Switch",
                 "price": "480,00",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "5",
+                "id": "11",
                 "picture": "img/games/xbox-series-x.png",
                 "name": "XBOX Series X",
                 "price": "4299,90",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "6",
+                "id": "12",
                 "picture": "img/games/game-boy-color.png",
                 "name": "Game Boy Color",
                 "price": "752,25",
@@ -100,42 +100,42 @@
         "categoryId": "3",
         "products": [
             {
-                "id": "1",
+                "id": "13",
                 "picture": "img/others/atari-shirt.png",
                 "name": "Camiseta ATARI",
                 "price": "80,00",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "2",
+                "id": "14",
                 "picture": "img/others/snes-shirt.png",
                 "name": "Camiseta Nintendo",
                 "price": "80,00",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "3",
+                "id": "15",
                 "picture": "img/others/sonic.png",
                 "name": "Sonic 7cm",
                 "price": "18,90",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "4",
+                "id": "16",
                 "picture": "img/others/radio.png",
                 "name": "Rádio-relógio rosa",
                 "price": "94,55",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "5",
+                "id": "17",
                 "picture": "img/others/psvr.png",
                 "name": "PSVR (usado)",
                 "price": "3450,00",
                 "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur voluptates maiores pariatur laudantium fuga. Vel odio incidunt libero aperiam"
             },
             {
-                "id": "6",
+                "id": "18",
                 "picture": "img/others/pikachu.png",
                 "name": "Fantasia Pikachu G",
                 "price": "322,00",

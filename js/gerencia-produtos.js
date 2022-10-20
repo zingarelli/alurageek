@@ -12,8 +12,7 @@ const productsCatalog = document.querySelector('.products__catalog'); // element
  * @param type Type of layout to display products. Use "all" to show all products in a single gallery, 
  * "split" to display a gallery of products for each available category, "search" to show products
  * based on a set of keywords, and "category" to show products for a category
- * @param key (optional) A set of keywords to search products by name or a category Id to get products from
- * a single category
+ * @param key (optional) A set of keywords to search products by name, product Id or a category Id
  */
 //TODO: refactor this function, it's too big and full of responsibilities
 export async function displayProducts(type, key) {
@@ -21,7 +20,7 @@ export async function displayProducts(type, key) {
     const productsResponse = await getProducts();
 
     // display all products
-    if (type === 'all') { 
+    if (type === 'all') {
         const gallery = createGallery();
 
         addTitleToGallery(gallery, 'Todos os produtos');
@@ -29,19 +28,22 @@ export async function displayProducts(type, key) {
         addAllProductsToGallery(productsResponse, gallery);
     }
     // display products, divided by category
-    else if (type === 'split') { 
+    else if (type === 'split') {
         productsResponse.forEach(category => {
             const gallery = createGallery();
             const products = category['products'];
+            const quantity = products.length;
+            const maxItems = quantity < MAX_ITEMS ? quantity : MAX_ITEMS;
+            const maxItemsMobile = quantity < MAX_ITEMS_MOBILE ? quantity : MAX_ITEMS_MOBILE;
 
             addTitleToGallery(gallery, category['categoryName']);
             addLinkToGallery(gallery, `categoria.html?cat=${category['categoryId']}`, 'Ver tudo &#10132;')
-            addProductsToGallery(gallery, products, MAX_ITEMS, MAX_ITEMS_MOBILE);
+            addProductsToGallery(gallery, products, maxItems, maxItemsMobile);
         });
     }
     // display all products for a single category
-    else if (type === 'category') { 
-        const category = getCategory(productsResponse, key);
+    else if (type === 'category') {
+        const category = await getProducstByCategory(key);
         const gallery = createGallery();
 
         if (category != null) {
@@ -63,11 +65,42 @@ export async function displayProducts(type, key) {
             addTitleToGallery(gallery, "Resultado da Busca");
             addProductsToGallery(gallery, products, products.length, products.length);
         }
-        else 
-        {
+        else {
             addTitleToGallery(gallery, "A busca não retornou nenhum resultado!");
         }
     }
+    // display related products
+    else if (type == 'related') {
+        const products = await getRelatedProducts(key);
+        
+        if(products) {
+            const gallery = createGallery();
+            const quantity = products.length;
+            const maxItems = quantity < MAX_ITEMS ? quantity : MAX_ITEMS;
+            const maxItemsMobile = quantity < MAX_ITEMS_MOBILE ? quantity : MAX_ITEMS_MOBILE;
+
+            addTitleToGallery(gallery, 'Produtos similares');
+            addProductsToGallery(gallery, products, maxItems, maxItemsMobile);
+        }
+    }
+}
+
+// display a single product on the page
+export async function displayProductDetails(productId) {
+    const product = await getProductById(productId);
+
+    if (product) {
+        // display product
+        createProductDetailsSection(product);
+
+        // display related products
+        displayProducts('related', productId);
+    }
+    else {
+        const gallery = createGallery();
+        addTitleToGallery(gallery, "Erro! Produto não encontrado.");
+    }
+
 }
 
 // return a list of products retrieved from an API
@@ -88,28 +121,29 @@ async function getProducts() {
     }
 }
 
+/*
+    Functions getProductsBy...() would send a request to API passing the 
+    searching parameter in order to receive products. Since there is no 
+    back end in this project, I'm using the JSON file included in the 
+    project and querying results from it.
+*/
+
 // return a list of products whose name matches one of the keywords
 async function getProductsByKeywords(keywords) {
-    /*
-        Here we would send a request to API passing the keyword in order
-        to receive a response with the filtered products. Since there is
-        no back end in this project, I'll use the JSON file included in 
-        the project and filter results from it.
-    */
     const productsList = [];
     try {
         //get all products
-        const response = await getProducts();
+        const products = await getProducts();
 
         // filter by name in each category category
-        response.forEach(category => {
+        products.forEach(category => {
             productsList.push(...category['products'].filter(({ name }) => {
                 // in case the user has typed more than one word, 
                 // we'll do the search for each word and return the
                 // product only once
                 let itemFound = false;
                 //TODO: use a different loop to stop the loop and return early if a conditional is true
-                keywords.split(' ').forEach( key => {
+                keywords.split(' ').forEach(key => {
                     if (name.toLowerCase().includes(key.toLowerCase())) {
                         itemFound = true;
                     }
@@ -125,14 +159,117 @@ async function getProductsByKeywords(keywords) {
 }
 
 // return a list of products for a given category 
-function getCategory(products, categoryId) {
-    for (const category of products) {
-        if (category['categoryId'] === categoryId) {
-            return category;
+async function getProducstByCategory(categoryId) {
+    try {
+        // get all products
+        const products = await getProducts();
+        for (const category of products) {
+            if (category['categoryId'] === categoryId) {
+                return category;
+            }
         }
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
     }
 
     //return an empty array if the category doesn't exist
+    return null;
+}
+
+// return a data from a single product for a given ID
+async function getProductById(productId) {
+    try {
+        // get all products
+        const products = await getProducts();
+
+        // look for the product in every category
+        for (const category of products) {
+            const product = (category['products'].filter(({ id }) => id === productId));
+            if (product.length > 0) return product[0];
+        }
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
+    }
+
+    return null;
+}
+
+// return products related to a given product
+async function getRelatedProducts(productId) {
+    try {
+        // I'm simulating related products by returning random products of the same category
+
+        // get category
+        const categoryId = await getCategory(productId);
+
+        // get random products, excluding the current one
+        const products = await getRandomProducts(categoryId, productId)
+
+        if(products) return products;
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
+    }
+
+    return null;
+}
+
+// return random products from a category (simulating related products)
+// current product is exclued from the search
+async function getRandomProducts(categoryId, productId) {
+    try {
+        const category = await getProducstByCategory(categoryId);
+
+        if (category) {
+            // excluding current product
+            const products = category['products'].filter(({ id }) => id !== productId);
+
+            // shuffle the order of the products
+            const productsShuffled = shuffleArray(products);
+
+            // there's a limited number of products to display
+            const quantity = productsShuffled.length;
+            const maxItems = quantity < MAX_ITEMS ? quantity : MAX_ITEMS;
+
+            if (maxItems > 0) return productsShuffled.slice(0, maxItems);
+        }
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
+    }
+
+    return null;
+}
+
+// copied from https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html
+// shuffle elements of an array
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+// return the Id of the category of a given product
+async function getCategory(productId) {
+    try {
+        // get all products
+        const products = await getProducts();
+
+        // look for the product in every category
+        for (const category of products) {
+            const product = (category['products'].filter(({ id }) => id === productId));
+            // return category ID
+            if (product.length > 0) return category.categoryId;
+        }
+    }
+    catch (err) {
+        console.log('Erro ao receber produtos da API\n' + err);
+    }
+
     return null;
 }
 
@@ -159,13 +296,39 @@ function createProductCard(product) {
     productCard.classList.add('item__card');
     productCard.innerHTML = `
         <div class="item__card">
-            <img src="${product.picture}" alt="Foto do produto" class="item__image">
+            <img src="${product.picture}" onclick="location.href='detalhe-produto.html?id=${product.id}'" alt="Foto do produto" class="item__image">
             <p class="item__name">${product.name}</p>
             <p class="item__price">R$ ${product.price}</p>
             <a href="detalhe-produto.html?id=${product.id}" class="item__anchor">Ver produto</a>
         </div>
     `;
     return productCard;
+}
+
+// create a section with details of a single product
+function createProductDetailsSection(product) {
+    const productSection = document.createElement('section');
+    productSection.classList.add('item');
+    productSection.innerHTML = `
+        <div class="item__banner" aria-label="Imagem do produto ${product.name}"></div>
+        <div class="item__content">
+            <h1 class="item__title">${product.name}</h1>
+            <p class="item__price">R$ ${product.price}</p>
+            <p class="item__description">${product.description}</p>
+        </div>
+    `
+    productsCatalog.appendChild(productSection);
+
+    // the image for the banner is a background-image in CSS, 
+    // so we need to change this property in CSS 
+    // (yes, this is an ugly solution. TODO: refactor HTML and CSS)
+    changeProductBanner(product.picture)
+}
+
+// change background-image property with a new image
+function changeProductBanner(image) {
+    const itemBanner = document.querySelector('.item__banner');
+    itemBanner.style.backgroundImage = `url(${image})`;
 }
 
 // add a name to the gallery element
@@ -235,5 +398,5 @@ function addAllProductsToGallery(productsList, gallery) {
         })
     })
 
-    addProductsToGallery(gallery, products, products.length, products.length)    
+    addProductsToGallery(gallery, products, products.length, products.length)
 }
