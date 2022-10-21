@@ -26,6 +26,8 @@ export async function displayProducts(type, key) {
         addTitleToGallery(gallery, 'Todos os produtos');
         addButtonToGallery(gallery, 'adicionar-produto.html', 'Adicionar produto');
         addAllProductsToGallery(productsResponse, gallery);
+        // products in the admin page have edit/remove buttons
+        addButtonsToProducts(gallery);
     }
     // display products, divided by category
     else if (type === 'split') {
@@ -295,12 +297,10 @@ function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.classList.add('item__card');
     productCard.innerHTML = `
-        <div class="item__card">
-            <img src="${product.picture}" onclick="location.href='detalhe-produto.html?id=${product.id}'" alt="Foto do produto" class="item__image">
-            <p class="item__name">${product.name}</p>
-            <p class="item__price">R$ ${product.price}</p>
-            <a href="detalhe-produto.html?id=${product.id}" class="item__anchor">Ver produto</a>
-        </div>
+        <img src="${product.picture}" onclick="location.href='detalhe-produto.html?id=${product.id}'" alt="Foto do produto" class="item__image">
+        <p class="item__name">${product.name}</p>
+        <p class="item__price">R$ ${product.price}</p>
+        <a href="detalhe-produto.html?id=${product.id}" class="item__anchor">Ver produto</a>
     `;
     return productCard;
 }
@@ -361,6 +361,24 @@ function addButtonToGallery(gallery, url, title) {
     galleryHeader.appendChild(link);
 }
 
+// add edit and remove buttons (represented by icons) to products
+function addButtonsToProducts(gallery) {
+    const items = gallery.querySelectorAll('.item__card');
+
+    // TODO: for future releases, this needs to be changed to add onclick function and product id
+    // maybe add this when the product element is being created 
+    items.forEach(item => {
+        const buttons = document.createElement('div');
+        buttons.classList.add('item__management');
+        buttons.innerHTML = `
+            <button class="item__management-button item__management-button--delete" aria-label="Deletar item"></button>
+            <button class="item__management-button item__management-button--edit" aria-label="Editar item"></button>
+        `
+
+        item.appendChild(buttons);        
+    })
+}
+
 /**
  * Add a list of products to a gallery
  * @param gallery Gallery to show the products
@@ -398,5 +416,5 @@ function addAllProductsToGallery(productsList, gallery) {
         })
     })
 
-    addProductsToGallery(gallery, products, products.length, products.length)
+    addProductsToGallery(gallery, products, products.length, products.length);
 }
