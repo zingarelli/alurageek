@@ -107,11 +107,11 @@ export async function displayProductDetails(productId) {
 async function getProducts() {  
     try {
         /*
-            I'm simulating an API response with a JSON file already included
-            in the project. For production, this needs to be modified to a
-            real API URL and errors should be handled more carefully.
+            I'm simulating an API response with a JSON saved in a GitHub Gist. 
+            For production, this needs to be modified to a real API URL and 
+            errors should be handled more carefully.
         */
-        const url = window.location.href + '/../api/produtos.json';
+        const url = 'https://gist.githubusercontent.com/zingarelli/2bd16935f38e0b7337f233becf02a9fd/raw/d342b77a8384153918403f5897daddfe24b91d13/produtos.json';
         const response = await fetch(url);
         const productsList = await response.json();
 
