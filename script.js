@@ -13,5 +13,6 @@ bannerBtn.addEventListener('click', () => {
     window.location = 'categoria.html?cat=2';
 })
 
+
 // show products when the home page loads
 displayProducts('split');
