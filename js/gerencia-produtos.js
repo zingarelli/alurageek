@@ -104,14 +104,14 @@ export async function displayProductDetails(productId) {
 }
 
 // return a list of products retrieved from an API
-async function getProducts() {
+async function getProducts() {  
     try {
         /*
             I'm simulating an API response with a JSON file already included
             in the project. For production, this needs to be modified to a
             real API URL and errors should be handled more carefully.
         */
-        const url = '../api/produtos.json';
+        const url = window.location.href + '/../api/produtos.json';
         const response = await fetch(url);
         const productsList = await response.json();
 
