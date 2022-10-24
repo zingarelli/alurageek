@@ -290,6 +290,6 @@ Here I list some features to be added in future releases of this project:
 
 # Thank you 🫶
 
-I'd like to thank Alura Team as whole for creating this challenge, specially Alura instructors, [Mônica Hillman](https://www.linkedin.com/in/monicamhillman/) and [Antônio Evaldo](https://www.linkedin.com/in/antonio-evaldo/). It was really satisfying putting into action what I've learned in the courses, simulating a real project, dealing with tasks and deadlines, and also sharing my results and asking for the help of other participants. 
+I'd like to thank Alura Team as whole for creating this challenge, specially [Mônica Hillman](https://www.linkedin.com/in/monicamhillman/), [Antônio Evaldo](https://www.linkedin.com/in/antonio-evaldo/) and [Vinícius Morais](https://br.linkedin.com/in/vinícius-morais). It was really satisfying putting into action what I've learned in the courses, simulating a real project, dealing with tasks and deadlines, and also sharing my results and asking for the help of other participants. 
 
 Another "thank you" goes to folks in Discord that have also participated in this challenge. We shared tips, codes, discussed approaches to tackle the tasks and had fun 😄
